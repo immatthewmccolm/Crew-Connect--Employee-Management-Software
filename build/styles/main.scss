@@ -1,0 +1,41 @@
+@import url('../fonts/chillax.css');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chillax-Regular' !important;
+}
+
+.login-form {
+    background-color: white;
+    padding: 40px;
+    border-radius: 4px;
+    width: 40%;
+}
+
+.login-page {
+    background: #256B52;
+    background-image: url('../images/loginbg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-primary {
+    background-color: #256B52;
+    border-color: #256B52;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #328f6e;
+    border-color: #328f6e;
+}
+
+.form-control {
+    border-radius: 4px;
+}
+
+.account-notice {
+    text-align: center;
+    font-size: 10px !important;
+    color: gray;
+}
