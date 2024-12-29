@@ -7,7 +7,21 @@
 <section class="login-form text-center">
     <img src="../build/logos/Black Stacked.svg" alt="" width="200" class="mb-4">
     <h2 class="mb-5">Account Login</h2>
-    <form class="text-start login-form-inner" action="backend/signin.php">
+
+
+    <?php if (isset($_GET['s']) && $_GET['s'] == 'success'): ?>
+        <div class="alert alert-success text-center">
+            Signup successful! Please log in.
+        </div>
+    <?php endif; ?>
+    <?php if (isset($_GET['s']) && $_GET['s'] == 'none'): ?>
+        <div class="alert alert-danger text-center">
+            Please check your Username and Password
+        </div>
+    <?php endif; ?>
+
+
+    <form class="text-start login-form-inner" action="backend/signin.php" method="POST">
         <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
             <input type="email" class="form-control" id="email" name="email" required>
