@@ -27,7 +27,7 @@ $fname = $_SESSION['FName'];
 <?php
 if ($_SESSION['Role'] == 'Admin') { ?>
 
-<div class="sticky-left navigation-bar-brand d-flex flex-column p-3 vh-100" style="width: 300px;"><br>
+<div class="sticky-left navigation-bar-brand d-flex flex-column p-3 vh-100"><br>
     <a href="/" class="d-flex align-items-center mb-5 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       <img src="build/logos/White Text.svg" alt="" width="100%">
     </a>
@@ -41,13 +41,19 @@ if ($_SESSION['Role'] == 'Admin') { ?>
       </li>
       <hr>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+        <a href="new-toil.php" class="nav-link" aria-current="page">
           <i class="fa-solid fa-clock-rotate-left me-2"></i>
-          New TOIL Request
+          New TOIL Gain Request
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+        <a href="use-toil.php" class="nav-link" aria-current="page">
+          <i class="fa-solid fa-clock-rotate-left me-2"></i>
+          New TOIL Use Request
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="toil.php" class="nav-link" aria-current="page">
           <i class="fa-solid fa-user-clock me-2"></i>
           Track my TOIL Requests
         </a>

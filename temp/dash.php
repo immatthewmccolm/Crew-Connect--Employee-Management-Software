@@ -26,36 +26,51 @@ $conn->close();
 
 <div class="main-content mb-5 mb-md-0 me-md-auto"><br>
     <h1>Hey &#128075;, <?php echo $_SESSION['FName'] ?></h1><hr>
-    
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card mb-4 text-center" style="height: 200px;">
+
+    <section class="layout">
+        <div class="Toil">
+        <div class="card text-center" style="height: 200px;">
                 <div class="card-body d-flex flex-column justify-content-center">
                     <h5 class="card-title">Total TOIL Hours</h5>
                     <p class="card-text display-4" id="total-toil-hours"><?php echo $totalToilHours; ?></p>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card mb-4 text-center" style="height: 200px;">
+        <div class="Holiday">
+        <div class="card text-center" style="height: 200px;">
                 <div class="card-body d-flex flex-column justify-content-center">
                     <h5 class="card-title">Total Holiday Hours</h5>
                     <p class="card-text display-4" id="total-holiday-hours"><?php echo $totalHolidayHours; ?></p>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Calendar</h5>
+        <div class="Calendar">
+        <div class="card" style="height: 450px;">
+                <div class="card-body" style="overflow-y: auto;">
                     <div id="calendar"></div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="About">
+            <div class="card" style="height: 100%;">
+                <div class="card-body">
+                <h5 class="card-title">Welcome to <b>CrewConnect!</b></h5>
+        <p class="card-text">CrewConnect is your all-in-one employee management solution designed to streamline your work experience. Here, you can manage your time off, track your hours, and stay updated with company announcements.</p>
+        <p class="card-text">To get started, explore the navigation menu on the left. If you have any questions, feel free to reach out to our support team.</p>
+        <p class="card-text">We hope you enjoy using CrewConnect!</p>
+                </div>
+            </div>
+        </div>
+        <div class="other">
+        <div class="card" style="height: 200px;">
+                <div class="card-body">
+                <h5 class="card-title">Important Notice</h5>
+                    <p class="card-text">We are excited to announce that our company will be implementing a new employee benefits program starting next month. This program will include additional paid time off, enhanced health insurance options, and more flexible working hours.</p>
+                    <p class="card-text">Please make sure to attend the upcoming town hall meeting where we will provide more details about these changes and answer any questions you may have. Your feedback is important to us, and we look forward to discussing these improvements with you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 <!-- Include necessary libraries -->
@@ -70,7 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalToilHours = <?php echo $totalToilHours; ?>; // Data from PHP
     const totalHolidayHours = <?php echo $totalHolidayHours; ?>; // Data from PHP
     const holidays = [ // Example data, replace with actual data
-        { title: 'Holiday Booking', start: '2024-12-29' },
+        { title: 'Holiday Booking', start: '2024-12-08', color: '#0DCAF0' }, // Blue: Approved Holiday
+        { title: 'Holiday Booking', start: '2024-12-09', color: '#6f42c1' }, // Purple: Pending Holiday
+        { title: 'Holiday Booking', start: '2024-12-10', end: '2024-12-12', color: '#dc3545' }, // Red: Declined Holiday
+        { title: 'TOIL Booking', start: '2024-12-15', color: '#198754' }, // Green: Approved TOIL
+        { title: 'TOIL Booking', start: '2024-12-16', color: '#ffc107' }, // Yellow: Pending TOIL
+        { title: 'TOIL Booking', start: '2024-12-17', color: '#DC3545' }, // Red: Declined TOIL
         // Add more events
     ];
 
@@ -82,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
     const calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        events: holidays
+        events: holidays // Pass the events to the calendar
     });
     calendar.render();
 });

@@ -100,3 +100,27 @@ h1, h2, h3, h4, h5, h6 {
 .container-fluid {
     padding-left: 0px !important;
 }
+
+.layout {
+    display: grid;
+    grid:
+      "Toil Holiday Calendar" 1fr
+      "About About Calendar" 1fr
+      "Other Other Other" 1fr
+      / 1fr 1fr 1fr;
+    gap: 8px;
+    grid-auto-flow: row dense;
+  
+    justify-content: start;
+  }
+  
+  .Toil { grid-area: Toil; }
+  .Holiday { grid-area: Holiday; }
+  .Calendar { grid-area: Calendar; }
+  .About { grid-area: About; }
+  .Other { grid-area: Other; }
+
+  .fc-col-header-cell-cushion, .fc-daygrid-day-number {
+    text-decoration: none !important;
+    color: black !important;
+}

@@ -1,6 +1,6 @@
 <?php include_once('components/head.php'); ?>
 
-<title>Document</title>
+<title>Dashboard | CrewConnect</title>
 </head>
 <body>
 
