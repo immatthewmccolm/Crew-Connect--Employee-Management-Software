@@ -15,17 +15,18 @@ if (!isset($_SESSION['empCode'])) {
     exit();
 }
 ?>
-
-<p>
-    <ul>
-        <li>code: <?php echo $_SESSION['empCode'] ?></li>
-        <li>First Name: <?php echo $_SESSION['FName'] ?></li>
-        <li>Surname: <?php echo $_SESSION['surname'] ?></li>
-        <li>Job Title: <?php echo $_SESSION['title'] ?></li>
-        <li>Email: <?php echo $_SESSION['email'] ?></li>
-        <li>Date Joined: <?php echo $_SESSION['Date_Joined'] ?></li>
-        <li>Role: <?php echo $_SESSION['Role'] ?></li>
-    </ul>
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <?php include_once('temp/nav.php'); ?>
+        </nav>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="main-content mb-5 mb-md-0 me-md-auto"><br>
+                <h1>Hey &#128075;, <?php echo $_SESSION['FName'] ?></h1><hr>
+                <!-- Add your page content here -->
+            </div>
+        </main>
+    </div>
+</div>
 
 <?php include_once('components/foot.php'); ?>

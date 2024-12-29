@@ -1,6 +1,7 @@
 @import url("../fonts/chillax.css");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Chillax-Regular" !important;
+  font-family: "Open Sans", serif !important;
 }
 
 .login-form {
@@ -37,4 +38,121 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-size: 10px !important;
   color: gray;
+}
+
+.navigation-bar-brand {
+  background-color: #256B52 !important;
+}
+.navigation-bar-brand .nav-link, .navigation-bar-brand a {
+  color: white !important;
+}
+.navigation-bar-brand .active {
+  color: #328f6e !important;
+  background-color: white !important;
+}
+.navigation-bar-brand .dropdown-item {
+  color: black !important;
+}
+
+.avatarLetters {
+  display: inline-block;
+  font-style: normal;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #a466c9;
+  font-size: 18px;
+  font-family: Tahoma, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  line-height: 28px;
+  letter-spacing: 0px;
+  margin: 2px 0;
+  padding: 5px;
+  text-indent: 0px;
+  border: 1px solid rgba(67, 67, 67, 0.8196078431);
+}
+
+.avatarLetters-color-1 {
+  background: rgba(105, 191, 128, 0.6392156863);
+}
+
+.avatarLetters-color-2 {
+  background: rgba(199, 169, 60, 0.6392156863);
+}
+
+.avatarLetters-color-3 {
+  background: rgba(171, 58, 137, 0.6392156863);
+}
+
+.avatarLetters-color-4 {
+  background: rgba(171, 58, 77, 0.6392156863);
+}
+
+.avatarLetters-color-5 {
+  background: rgba(128, 150, 41, 0.6392156863);
+}
+
+.avatarLetters-color-6 {
+  background: rgba(90, 95, 166, 0.6392156863);
+}
+
+.avatarLetters-color-7 {
+  background: rgba(62, 155, 199, 0.6392156863);
+}
+
+.avatarLetters-color-8 {
+  background: rgba(66, 122, 44, 0.6392156863);
+}
+
+.avatarLetters-color-9 {
+  background: rgba(108, 158, 143, 0.6392156863);
+}
+
+.avatarLetters-color-10 {
+  background: rgba(201, 105, 166, 0.6392156863);
+}
+
+.avatarLetters-color-11 {
+  background: rgba(207, 134, 0, 0.6392156863);
+}
+
+.avatarLetters-color-12 {
+  background: rgba(207, 55, 0, 0.6392156863);
+}
+
+.avatarLetters-color-13 {
+  background: rgba(0, 110, 207, 0.6392156863);
+}
+
+.avatarLetters-color-14 {
+  background: rgba(183, 124, 204, 0.6392156863);
+}
+
+.avatarLetters-color-15 {
+  background: rgba(138, 72, 95, 0.6392156863);
+}
+
+.avatarLetters-color-16 {
+  background: rgba(138, 72, 95, 0.6392156863);
+}
+
+.avatarLetters-color-17 {
+  background: rgba(190, 212, 68, 0.6392156863);
+}
+
+.avatarLetters-color-18 {
+  background: rgba(33, 173, 91, 0.6392156863);
+}
+
+.avatarLetters-color-19 {
+  background: rgba(156, 115, 115, 0.6392156863);
+}
+
+.avatarLetters-color-20 {
+  background: rgba(58, 156, 181, 0.6392156863);
+}
+
+.container-fluid {
+  padding-left: 0px !important;
 }/*# sourceMappingURL=main.css.map */

@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Hash the users password
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO employees (employee_code, first_name, surname, job_title, email_address, date_joined, role, password) VALUES ('$empCode', '$FName', '$LName', '$jobTitle', '$email', '$dateJoined', 'Standard', '$hashed_password')";
+    $sql = "INSERT INTO employees (employee_code, first_name, surname, job_title, email_address, date_joined, role, password, TOIL_Balance, HOL_Balance) VALUES ('$empCode', '$FName', '$LName', '$jobTitle', '$email', '$dateJoined', 'Standard', '$hashed_password', '0', '45')";
 
     if ($conn->query($sql) === TRUE) {
         header('Location: ../signin.php?s=success');

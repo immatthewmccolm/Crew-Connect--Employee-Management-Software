@@ -1,7 +1,9 @@
 @import url('../fonts/chillax.css');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Chillax-Regular' !important;
+//   font-family: 'Chillax-Regular';
+  font-family: "Open Sans", serif !important;
 }
 
 .login-form {
@@ -38,4 +40,63 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-size: 10px !important;
     color: gray;
+}
+
+.navigation-bar-brand {
+    background-color: #256B52 !important;
+    .nav-link, a {
+        color: white !important;
+    }
+    .active {
+        color: #328f6e !important;
+        background-color: white !important;
+    }
+
+    .dropdown-item {
+        color: black !important;
+    }
+}
+
+.avatarLetters {
+    display:inline-block;
+    font-style: normal;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #a466c9;
+    font-size: 18px;
+    font-family: Tahoma, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    line-height: 28px;
+    letter-spacing: 0px;
+    margin: 2px 0;
+    padding: 5px;
+    text-indent: 0px;
+    border: 1px solid #434343d1;
+    
+}
+.avatarLetters-color-1 { background: #69bf80a3; }
+.avatarLetters-color-2 { background: #c7a93ca3; }
+.avatarLetters-color-3 { background: #ab3a89a3; }
+.avatarLetters-color-4 { background: #ab3a4da3; }
+.avatarLetters-color-5 { background: #809629a3; }
+.avatarLetters-color-6 { background: #5a5fa6a3; }
+.avatarLetters-color-7 { background: #3e9bc7a3; }
+.avatarLetters-color-8 { background: #427a2ca3; }
+.avatarLetters-color-9 { background: #6c9e8fa3; }
+.avatarLetters-color-10 { background: #c969a6a3; }
+.avatarLetters-color-11 { background: #cf8600a3; }
+.avatarLetters-color-12 { background: #cf3700a3; }
+.avatarLetters-color-13 { background: #006ecfa3; }
+.avatarLetters-color-14 { background: #b77ccca3; }
+.avatarLetters-color-15 { background: #8a485fa3; }
+.avatarLetters-color-16 { background: #8a485fa3; }
+.avatarLetters-color-17 { background: #bed444a3; }
+.avatarLetters-color-18 { background: #21ad5ba3; }
+.avatarLetters-color-19 { background: #9c7373a3; }
+.avatarLetters-color-20 { background: #3a9cb5a3; }
+
+.container-fluid {
+    padding-left: 0px !important;
 }

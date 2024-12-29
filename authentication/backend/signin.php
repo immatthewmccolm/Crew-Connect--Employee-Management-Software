@@ -30,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $Date_Joined = $row["Date_Joined"];
           $Role = $row["Role"];
           $hashword = $row["Password"];
+          $TOILBalance = $row["TOIL_Balance"];
+          $HOLBalance = $row["HOL_Balance"];
         }
     } else {
         header('Location: ../signin.php?s=none');
@@ -44,6 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $email;
         $_SESSION['Date_Joined'] = $Date_Joined;
         $_SESSION['Role'] = $Role;
+        $_SESSION['TOILBalance'] = $TOILBalance;
+        $_SESSION['HOLBalance'] = $HOLBalance;
     
         header('Location: ../../index.php');
     } else {
