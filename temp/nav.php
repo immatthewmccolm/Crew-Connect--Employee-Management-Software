@@ -27,7 +27,7 @@ $fname = $_SESSION['FName'];
 <?php
 if ($_SESSION['Role'] == 'Admin') { ?>
 
-<div class="navigation-bar-brand d-flex flex-column p-3 vh-100" style="width: 300px;"><br>
+<div class="sticky-left navigation-bar-brand d-flex flex-column p-3 vh-100" style="width: 300px;"><br>
     <a href="/" class="d-flex align-items-center mb-5 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       <img src="build/logos/White Text.svg" alt="" width="100%">
     </a>
