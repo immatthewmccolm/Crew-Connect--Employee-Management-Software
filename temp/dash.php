@@ -95,7 +95,7 @@ $conn2->close();
             </div>
         </div>
         <div class="Calendar">
-        <div class="card" style="height: 450px;">
+        <div class="card">
                 <div class="card-body" style="overflow-y: auto;">
                     <div id="calendar"></div>
                 </div>

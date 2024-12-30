@@ -22,7 +22,7 @@ if (!isset($_SESSION['empCode'])) {
         </nav>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="main-content mb-5 mb-md-0 me-md-auto">
-                <!-- <h1>Hey &#128075;, <?php echo $_SESSION['FName'] ?></h1><hr> -->
+                <!-- <h1>Hey &#128075;, <?php echo $_SESSION['FName'] ?></h1><hr> --> <!-- This line of code seems to be important -->
                 <!-- Add your page content here -->
                 <?php include_once('temp/dash.php'); ?>
 
