@@ -89,9 +89,9 @@ $conn->close();
                                 <td><?php echo $r['Date_Joined']; ?></td>
                                 <td><?php echo $r['Role']; ?></td>
                                 <td>
-                                <a class="icon " href="backend/delete-user.php?id=<?php echo htmlspecialchars($row['Request_ID']);?>"><i class="decline fa-solid fa-trash "></i></a>
-                                <a class="icon " href="edit-user.php?id=<?php echo htmlspecialchars($row['Request_ID']);?>"><i class="fa-solid fa-pencil "></i></a>
-                                <a class="icon " href="backend/upgrade-user.php?id=<?php echo htmlspecialchars($row['Request_ID']);?>"><i class="approve fa-solid fa-star "></i></a>
+                                <a class="icon " href="backend/delete-user.php?id=<?php echo htmlspecialchars($r['Employee_Code']);?>"><i class="decline fa-solid fa-trash "></i></a>
+                                <a class="icon " href="edit-user.php?id=<?php echo $r['Employee_Code'];?>&f=<?php echo $r['First_Name'];?>&l=<?php echo $r['Surname'];?>&j=<?php echo $r['Job_Title'];?>&e=<?php echo $r['Email_Address'];?>&dj=<?php echo $r['Date_Joined'];?>"><i class="fa-solid fa-pencil "></i></a>
+                                <a class="icon " href="backend/upgrade-user.php?id=<?php echo $r['Employee_Code'];?>&a=<?php echo $r['Role'];?>"><i class="approve fa-solid fa-star "></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

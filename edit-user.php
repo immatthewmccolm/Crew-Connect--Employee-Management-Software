@@ -14,9 +14,18 @@ if (!isset($_SESSION['empCode'])) {
     header('Location: authentication/signin.php');
     exit();
 }
+if ($_SESSION['Role'] != 'Admin') {
+    // If not signed in, redirect to the login page
+    header('Location: index.php');
+    exit();
+}
 
-$reqID = uniqid();
-$date = date('Y-m-d');
+$empCode = urldecode($_GET['id']);
+$first = urldecode($_GET['f']);
+$last = urldecode($_GET['l']);
+$job = urldecode($_GET['j']);
+$email = urldecode($_GET['e']);
+$date = urldecode($_GET['dj']);
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -25,27 +34,36 @@ $date = date('Y-m-d');
         </nav>
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div class="main-content mb-5 mb-md-0 me-md-auto"><br>
-                <h1>Create a New TOIL Gain Request</h1><hr>
+                <h1>Change an Employees Details</h1><hr>
                 <!-- Add your page content here --><br>
-                <form action="backend/new-toil.php" method="POST">
+                <form action="backend/edit-user.php" method="POST">
                     <div class="mb-3">
-                        <label for="toil-date" class="form-label">Employee ID</label>
-                        <input type="number" class="form-control" id="empID" name="empID" value="<?php echo $_SESSION['empCode'] ?>" required disabled>
+                        <label for="employee_code" class="form-label">Employee Code</label>
+                        <input type="number" class="form-control" id="employee_code" name="employee_code" value="<?php echo $empCode ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="reqDate" class="form-label">Requested Date</label>
-                        <input type="date" class="form-control" id="reqDate" name="reqDate" required>
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo $first ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="hoursReq" class="form-label">Hours Requested</label>
-                        <input type="decimal" class="form-control" id="hoursReq" name="hoursReq" required>
+                        <label for="surname" class="form-label">Surname</label>
+                        <input type="text" class="form-control" id="surname" name="surname" value="<?php echo $last ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="comments" class="form-label">Comments</label> 
-                        <textarea class="form-control" id="comments" name="comments" rows="3" required></textarea>
+                        <label for="job_title" class="form-label">Job Title</label>
+                        <input type="text" class="form-control" id="job_title" name="job_title" value="<?php echo $job ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $email ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date_joined" class="form-label">Date Joined</label>
+                        <input type="date" class="form-control" id="date_joined" name="date_joined" value="<?php echo $date ?>" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="return" class="btn btn-secondary">Cancel</button>
                 </form>
             </div>
         </main>

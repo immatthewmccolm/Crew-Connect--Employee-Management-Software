@@ -24,18 +24,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$reqID = urldecode($_GET['id']);
-$approver = $_SESSION['empCode'];
 
-$stmt = $conn->prepare("UPDATE toil_requests SET Request_Status = 'Approved', Approver_Employee_Code = '$approver' WHERE Request_ID = '$reqID'");
+$empCode = urldecode($_GET['id']);
+$access = urldecode($_GET['a']);
 
+if ($access == 'Admin') {
+    $sql = "UPDATE employees SET Role = 'Standard' WHERE Employee_Code = '$empCode'";
+} else {
+    $sql = "UPDATE employees SET Role = 'Admin' WHERE Employee_Code = '$empCode'";
+}
 
-if ($stmt->execute() === TRUE) {
-    header('Location: ../approve-toil.php');
+if ($conn->query($sql) === TRUE) {
+    header('Location: ../user-management.php');
   } else {
     echo "Error updating record: " . $conn->error;
   }
-  
-  $conn->close();
 
-  ?>
+  $conn->close();

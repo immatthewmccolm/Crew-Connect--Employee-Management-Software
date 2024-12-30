@@ -22,6 +22,56 @@ $stmt->bind_result($totalToilHours, $totalHolidayHours);
 $stmt->fetch();
 $stmt->close();
 $conn->close();
+
+$conn = new mysqli($DB_Host, $DB_User, $DB_Pass, $DB_Name);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare and execute the SQL query
+$stmt = $conn->prepare("SELECT * FROM toil_requests WHERE Employee_ID = ?");
+$stmt->bind_param("i", $_SESSION['empCode']);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Fetch the requests
+$req = [];
+while ($row = $result->fetch_assoc()) {
+    $req[] = $row;
+}
+
+// Close the statement and connection
+$stmt->close();
+$conn->close();
+
+
+
+
+
+$conn2 = new mysqli($DB_Host, $DB_User, $DB_Pass, $DB_Name);
+
+// Check connection
+if ($conn2->connect_error) {
+    die("Connection failed: " . $conn2->connect_error);
+}
+
+// Prepare and execute the SQL query
+$stmt2 = $conn2->prepare("SELECT * FROM holiday_requests WHERE Employee_ID = ?");
+$stmt2->bind_param("i", $_SESSION['empCode']);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+// Fetch the requests
+$req2 = [];
+while ($row2 = $result2->fetch_assoc()) {
+    $req2[] = $row2;
+}
+
+// Close the statement and connection
+$stmt2->close();
+$conn2->close();
 ?>
 
 <div class="main-content mb-5 mb-md-0 me-md-auto"><br>
@@ -85,13 +135,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalToilHours = <?php echo $totalToilHours; ?>; // Data from PHP
     const totalHolidayHours = <?php echo $totalHolidayHours; ?>; // Data from PHP
     const holidays = [ // Example data, replace with actual data
-        { title: 'Holiday Booking', start: '2024-12-08', color: '#0DCAF0' }, // Blue: Approved Holiday
-        { title: 'Holiday Booking', start: '2024-12-09', color: '#6f42c1' }, // Purple: Pending Holiday
-        { title: 'Holiday Booking', start: '2024-12-10', end: '2024-12-12', color: '#dc3545' }, // Red: Declined Holiday
-        { title: 'TOIL Booking', start: '2024-12-15', color: '#198754' }, // Green: Approved TOIL
-        { title: 'TOIL Booking', start: '2024-12-16', color: '#ffc107' }, // Yellow: Pending TOIL
-        { title: 'TOIL Booking', start: '2024-12-17', color: '#DC3545' }, // Red: Declined TOIL
-        // Add more events
+
+
+        <?php foreach ($req as $r) { ?>
+            {
+                title: 'TOIL Request',
+                start: '<?php echo $r['Request_Date']; ?>',
+                color: '<?php echo $r['Request_Status'] === 'Pending' ? '#ffc107' : ($r['Request_Status'] === 'Approved' ? '#198754' : '#dc3545'); ?>'
+            },
+        <?php } ?>
+
+        <?php foreach ($req2 as $r2) { ?>
+            {
+                title: 'Holiday Request',
+                start: '<?php echo $r2['Start_Date']; ?>',
+                end: '<?php echo $r2['End_Date']; ?>',
+                color: '<?php echo $r2['Request_Status'] === 'Pending' ? '#6f42c1' : ($r2['Request_Status'] === 'Approved' ? '#0DCAF0' : '#dc3545'); ?>'
+            },
+        <?php } ?>
     ];
 
     // Update total hours

@@ -13,6 +13,7 @@ if ($_SESSION['Role'] != 'Admin') {
     header('Location: index.php');
     exit();
 }
+
 // Include database credentials
 include_once('../authentication/creds.php');
 
@@ -26,17 +27,30 @@ if ($conn->connect_error) {
 
 $reqID = urldecode($_GET['id']);
 
+// Fetch the requested hours and employee ID from the toil_requests table
+$stmt = $conn->prepare("SELECT Employee_ID, Request_Amount FROM toil_requests WHERE Request_ID = ?");
+$stmt->bind_param("i", $reqID);
+$stmt->execute();
+$stmt->bind_result($employeeID, $requestedHours);
+$stmt->fetch();
+$stmt->close();
+
+// Update the TOIL balance in the employees table
+$stmt = $conn->prepare("UPDATE employees SET TOIL_Balance = TOIL_Balance + ? WHERE Employee_Code = ?");
+$stmt->bind_param("di", $requestedHours, $employeeID);
+$stmt->execute();
+$stmt->close();
+
+// Update the request status to 'Declined'
 $stmt = $conn->prepare("UPDATE toil_requests SET Request_Status = 'Declined' WHERE Request_ID = ?");
 $stmt->bind_param("i", $reqID);
 
-
 if ($stmt->execute() === TRUE) {
     header('Location: ../approve-toil.php');
-  } else {
+} else {
     echo "Error updating record: " . $conn->error;
-  }
-  
-  $conn->close();
+}
 
-  ?>
-
+$stmt->close();
+$conn->close();
+?>

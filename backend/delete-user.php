@@ -5,15 +5,14 @@ session_start();
 // Check if the user is signed in
 if (!isset($_SESSION['empCode'])) {
     // If not signed in, redirect to the login page
-    header('Location: ../authentication/signin.php');
+    header('Location: authentication/signin.php');
     exit();
 }
 if ($_SESSION['Role'] != 'Admin') {
-    // If not an admin, redirect to the index page
-    header('Location: ../index.php');
+    // If not signed in, redirect to the login page
+    header('Location: index.php');
     exit();
 }
-
 // Include database credentials
 include_once('../authentication/creds.php');
 
@@ -25,18 +24,19 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$reqID = urldecode($_GET['id']);
-$approver = $_SESSION['empCode'];
+$empCode = urldecode($_GET['id']);
 
-// Update the request status to 'Approved' and set the Approver_Employee_Code
-$stmt = $conn->prepare("UPDATE holiday_requests SET Request_Status = 'Approved', Approver_Employee_Code = '$approver' WHERE Request_ID = '$reqID'");
+$stmt = $conn->prepare("DELETE FROM employees WHERE Employee_Code = ?");
+$stmt->bind_param("i", $empCode);
+
 
 if ($stmt->execute() === TRUE) {
-    header('Location: ../approve-al.php');
-} else {
+    header('Location: ../user-management.php');
+  } else {
     echo "Error updating record: " . $conn->error;
-}
+  }
+  
+  $conn->close();
 
-$stmt->close();
-$conn->close();
-?>
+  ?>
+

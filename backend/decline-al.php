@@ -26,17 +26,30 @@ if ($conn->connect_error) {
 
 $reqID = urldecode($_GET['id']);
 
+// Fetch the requested hours and employee ID from the holiday_requests table
+$stmt = $conn->prepare("SELECT Employee_ID, Requested_Hours FROM holiday_requests WHERE Request_ID = ?");
+$stmt->bind_param("i", $reqID);
+$stmt->execute();
+$stmt->bind_result($employeeID, $requestedHours);
+$stmt->fetch();
+$stmt->close();
+
+// Update the holiday balance in the employees table
+$stmt = $conn->prepare("UPDATE employees SET HOL_Balance = HOL_Balance + ? WHERE Employee_Code = ?");
+$stmt->bind_param("di", $requestedHours, $employeeID);
+$stmt->execute();
+$stmt->close();
+
+// Update the request status to 'Declined'
 $stmt = $conn->prepare("UPDATE holiday_requests SET Request_Status = 'Declined' WHERE Request_ID = ?");
 $stmt->bind_param("i", $reqID);
 
-
 if ($stmt->execute() === TRUE) {
     header('Location: ../approve-al.php');
-  } else {
+} else {
     echo "Error updating record: " . $conn->error;
-  }
-  
-  $conn->close();
+}
 
-  ?>
+$stmt->close();
+$conn->close();
 
