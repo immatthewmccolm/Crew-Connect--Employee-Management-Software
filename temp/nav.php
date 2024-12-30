@@ -34,7 +34,7 @@ if ($_SESSION['Role'] == 'Admin') { ?>
     <br><br><br>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
+        <a href="index.php" class="nav-link active" aria-current="page">
           <i class="fa-solid fa-house me-2"></i>
           Home
         </a>
@@ -60,33 +60,33 @@ if ($_SESSION['Role'] == 'Admin') { ?>
       </li>
       <hr>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+        <a href="new-al.php" class="nav-link" aria-current="page">
           <i class="fa-solid fa-plane me-2"></i>
           New AL Request
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+        <a href="al.php" class="nav-link" aria-current="page">
           <i class="fa-solid fa-user-clock me-2"></i>
           Track my AL Requests
         </a>
       </li>
       <hr>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+        <a href="approve-toil.php" class="nav-link" aria-current="page">
           <i class="fa-solid fa-circle-check me-2"></i>
           Approve TOIL Requests
         </a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+        <a href="approve-al.php" class="nav-link" aria-current="page">
           <i class="fa-solid fa-circle-check me-2"></i>
           Approve AL Requests
         </a>
       </li>
       <hr>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page">
+        <a href="user-management.php" class="nav-link" aria-current="page">
           <i class="fa-solid fa-users me-2"></i>
           User Management
         </a>

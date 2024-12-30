@@ -188,4 +188,17 @@ h1, h2, h3, h4, h5, h6 {
 .fc-col-header-cell-cushion, .fc-daygrid-day-number {
   text-decoration: none !important;
   color: black !important;
+}
+
+.icon {
+  text-decoration: none;
+  margin-right: 5px !important;
+}
+
+.approve {
+  color: green !important;
+}
+
+.decline {
+  color: red !important;
 }/*# sourceMappingURL=main.css.map */
